@@ -23,7 +23,7 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 // Run the unit tests using pytest or unittest
-                sh "${PYTHON_ENV} -m unittest discover -s tests"
+                sh "${PYTHON_ENV} -m unittest app_test.py"
             }
         }
 
