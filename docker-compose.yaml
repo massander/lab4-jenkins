@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - ci_network
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+  ntp:
+    image: cturra/ntp:latest
+    container_name: ntp
+    restart: always
+    ports:
+      - 123:123/udp
+    environment:
+      - NTP_SERVERS=time.cloudflare.com
+      - LOG_LEVEL=0
+
+networks:
+  ci_network:
+    driver: bridge
+
+volumes:
+  jenkins_home:
