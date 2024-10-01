@@ -7,12 +7,12 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Pull the latest code from Git
-                git branch: 'main', url: 'https://github.com/your-repo/python-app.git'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         // Pull the latest code from Git
+        //         git branch: 'main', url: 'https://github.com/your-repo/python-app.git'
+        //     }
+        // }
 
         stage('Check Version') {
             steps {
